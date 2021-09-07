@@ -37,7 +37,12 @@ def scrape():
 	browser.visit(space_images_url)
 	time.sleep(2)
 
-	relative_image_path = soup.find_all('img')[1]["src"]
+	browser.links.find_by_partial_text('FULL IMAGE').click()
+
+	feature_img_html = browser.html
+	soup = bs(feature_img_html, 'html.parser')
+
+	relative_image_path = soup.find('img', class_='fancybox-image')['src']
 	feature_img = space_images_url + relative_image_path
 
 
@@ -46,6 +51,7 @@ def scrape():
 	mars_facts_url = 'https://galaxyfacts-mars.com/'
 
 	facts_df = pd.read_html(mars_facts_url, header=0)[0]
+	facts_df.set_index('Mars - Earth Comparison', inplace=True)
 	facts_html = facts_df.to_html()
 
 
