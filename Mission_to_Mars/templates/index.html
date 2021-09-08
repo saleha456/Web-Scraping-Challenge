@@ -55,18 +55,29 @@
 
 
             <div class=row style="margin-top: 2%">
+
                 
-                <h3>Mars Hemispheres</h3>
+                
+                <h3 style="text-align: center; margin-bottom: 2%;">Mars Hemispheres</h3>
 
                 {%for hemispheres in redplanet.hemispheres%}
                 
                 <div class="col-sm-12 col-md-6 col-lg-3">
-                    <p><img src= "{{hemispheres.img_url}}" alt="{{hemispheres.title}}" width=200px /></p>
-                    <h5>{{hemispheres.title}} </h5>
+                    <!-- <p><img src= "{{hemispheres.img_url}}" alt="{{hemispheres.title}}" width=200px /></p> -->
+                    <!-- <h5>{{hemispheres.title}} </h5> -->
+
+                    <div class="card" style="width: 200px;">
+                        <img src="{{hemispheres.img_url}}" class="card-img-top" alt="{{hemispheres.title}}">
+                        <div class="card-body">
+                        <p class="card-text"><h5 style="text-align: center;">{{hemispheres.title}} </h5></p>
+                        </div>
+                    </div>
+
                 </div>
 
                 {%endfor%}
 
+               
 
 
             </div>
