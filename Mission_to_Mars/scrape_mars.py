@@ -54,6 +54,11 @@ def scrape():
 	facts_df.set_index('Mars - Earth Comparison', inplace=True)
 	facts_html = facts_df.to_html()
 
+	#####Format Table: Center Align Header and Add Striped Rows
+	
+	facts_html = facts_html.replace('right','center')
+	facts_html = facts_html.replace('dataframe','table table-striped')
+
 
 	# Scrape Mars Hemispheres Data
 
